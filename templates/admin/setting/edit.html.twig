@@ -1,0 +1,237 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Edit Setting{% endblock %}
+
+{% block content %}
+
+    <h1 style="margin-left: 600px"> Setting Ayarlar</h1>
+    <br>
+    <br>
+
+
+
+<style>
+    nav > .nav.nav-tabs{
+
+        border: none;
+        color:#fff;
+        background:#272e38;
+        border-radius:0;
+
+    }
+    nav > div a.nav-item.nav-link,
+    nav > div a.nav-item.nav-link.active
+    {
+        border: none;
+        padding: 18px 25px;
+        color:#fff;
+        background:#272e38;
+        border-radius:0;
+    }
+
+    nav > div a.nav-item.nav-link.active:after
+    {
+        content: "";
+        position: relative;
+        bottom: -60px;
+        left: -10%;
+        border: 15px solid transparent;
+        border-top-color: #e74c3c ;
+    }
+    .tab-content{
+        background: #fdfdfd;
+        line-height: 25px;
+        border: 1px solid #ddd;
+        border-top:5px solid #e74c3c;
+        border-bottom:5px solid #e74c3c;
+        padding:30px 25px;
+    }
+
+    nav > div a.nav-item.nav-link:hover,
+    nav > div a.nav-item.nav-link:focus
+    {
+        border: none;
+        background: #e74c3c;
+        color:#fff;
+        border-radius:0;
+        transition:background 0.20s linear;
+    }</style>
+
+
+
+
+<form class="modal-form" method="post" style="width: 100%">
+
+    <div class="container"style="width: 100%" >
+
+                <nav>
+                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Genel Bilgiler</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Server Bilgileri</a>
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Hakkımızda</a>
+                        <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">İletişim</a>
+                        <a class="nav-item nav-link" id="nav-about2-tab" data-toggle="tab" href="#nav-about2" role="tab" aria-controls="nav-about2" aria-selected="false">Referanslar</a>
+
+                    </div>
+                </nav>
+                <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="form-group row">
+                        <div class="col-md-6">
+                        <label>Başlık</label>
+                        </div>
+                        <div class="col-md-6">
+                        <input type="text" class="form-control" name="setting[title]" value="{{  setting.title  }}" style="width: 450px">
+                        </div>
+                        </div>
+                        <div class="form-group row">
+                        <div class="col-md-6">
+                        <label>Anahtar Kelimeler</label>
+                        </div>
+                        <div class="col-md-6">
+                        <input type="text" class="form-control" name="setting[keywords]" value="{{  setting.keywords  }}" style="width: 450px">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="row">
+                        <div class="col-md-6">
+                        <label>Açıklama</label>
+                        </div>
+                        <div class="col-md-6">
+                        <input type="text" class="form-control" name="setting[description]" value="{{  setting.description  }}" style="width: 450px">
+                        </div>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="row">
+                        <div class="col-md-6">
+                        <label>Şirket İsmi</label>
+                        </div>
+                        <div class="col-md-6">
+                        <input type="text" class="form-control" name="setting[company]" value="{{  setting.company  }}">
+                        </div>
+                        </div>
+                        </div>
+                        <div class="form-group row">
+                        <div class="col-md-6">
+                        <label>Adres</label>
+                        </div>
+                        <div class="col-md-6">
+                        <input type="text" class="form-control" name="setting[address]" value="{{  setting.address  }}">
+                        </div>
+                        </div>
+                        <div class="form-group row">
+                        <div class="col-md-6">
+                        <label>Fax</label>
+                        </div>
+                        <div class="col-md-6">
+                        <input type="text" class="form-control" name="setting[fax]" value="{{  setting.fax  }}">
+                        </div>
+                        </div>
+                        <div class="form-group row">
+                        <div class="col-md-6">
+                        <label>Telefon</label>
+                        </div>
+                        <div class="col-md-6">
+                        <input type="text" class="form-control" name="setting[phone]" value="{{  setting.phone  }}">
+                        </div>
+                        </div>
+                        {#<div class="form-group row">#}
+                        {#<div class="col-md-6">#}
+                        {#<label> Durum</label>#}
+                        {#</div>#}
+                        {#<div class="col-md-6">#}
+                        {#<select name="setting[status]" class="form-control">#}
+                        {#<option>{{ setting.status }}</option>#}
+                        {#<option>True</option>#}
+                        {#<option>False</option>#}
+                        {#</select>#}
+                        {#</div>#}
+                        {#</div>#}
+
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label>Email Server</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="setting[smtpserver]" value="{{  setting.smtpserver  }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="setting[smtpemail]" value="{{  setting.smtpemail  }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label>Password</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="setting[smtppassw]" value="{{  setting.smtppassw  }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label>SMTP Port</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="setting[smtpport]" value="{{  setting.smtpport  }}">
+                            </div>
+                        </div>
+                    </div>
+
+                          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                        <textarea id="textarea1" name="setting[aboutus]" rows="10" cols="100">{{ setting.aboutus }}</textarea>
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                        <textarea id="textarea2" name="setting[contact]" rows="10" cols="100">{{ setting.contact }}</textarea>
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-about2" role="tabpanel" aria-labelledby="nav-about2-tab">
+                        <textarea id="textarea3" name="setting[referances]" rows="10" cols="100">{{ setting.referances }}</textarea>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    <br>
+        <div class="col-md-2">
+            <button type="submit"style="margin-left: 700px" class="btn btn-primary btn-block">Kaydet</button>
+        </div>
+
+
+    </div>
+</form>
+
+
+    <script>
+    ClassicEditor
+    .create( document.querySelector( '#textarea1' ) )
+    .catch( error => {
+    console.error( error );
+    } );
+    </script>
+    <script>
+    ClassicEditor
+    .create( document.querySelector( '#textarea2' ) )
+    .catch( error => {
+    console.error( error );
+    } );
+    </script>
+    <script>
+    ClassicEditor
+    .create( document.querySelector( '#textarea3' ) )
+    .catch( error => {
+    console.error( error );
+    } );
+    </script>
+
+{% endblock %}

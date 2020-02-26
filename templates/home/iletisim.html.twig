@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ data[0].title }} {% endblock %}
+{% block keywords %} {{ data[0].keywords }} {% endblock %}
+{% block description %} {{ data[0].description }} {% endblock %}
+{% block content %}
+
+
+<div style="margin-left: 400px;width:60%;">
+    <br>
+    <p>
+        {{ data[0].contact|raw }}
+        <br><br><br><br><br><br><br>
+    </p>
+</div>
+<div style="clear:both;"></div>
+    <div style="margin-left: 600px;width:40%;">
+<br>
+
+        {{ include('messages.html.twig') }}
+        <form method="post" id="contactform">
+
+        <div class="form-group">
+        <label class="req" style="margin-left: 300px"> İsim</label>
+        <input type="text" class="form-control input"   name="messages[name]" placeholder="Ad Soyadınızı Giriniz" style="margin-left: 230px">
+        </div>
+        <div class="form-group" >
+        <label class="req" style="margin-left: 295px">Konu</label>
+        <input type="text" class="form-control input" name="messages[subject]" placeholder="Konu Girin" style="margin-left: 260px">
+        </div>
+        <div class="form-group">
+        <label class="req" style="margin-left: 265px">E-posta Adresi</label>
+        <input type="email" class="form-control input" name="messages[email]" placeholder="E-posta adresinizi giriniz" style="margin-left: 220px">
+        </div>
+
+
+        <div class="form-group">
+            <br>
+        <label class="req" style="margin-left: 280px">Mesajınız</label>
+        <textarea class="form-control" rows="11" name="messages[message]" ></textarea>
+        </div>
+        <input type="hidden" name="token" value="{{ csrf_token('form-message') }}" />
+            <button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4" type="submit"> <i class="fa fa-envelope"></i>  &nbsp; GÖNDER</button>
+            <br><br><br><br><br><br><br><br><br>
+        </form>
+    </div>
+
+
+{% endblock %}
+
+
+

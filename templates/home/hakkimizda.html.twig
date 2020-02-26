@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block title %} Hakkımızda {{ data[0].title }} {% endblock %}
+{% block keywords %}  {{ data[0].keywords }} {% endblock %}
+{% block description %} {{ data[0].description }} {% endblock %}
+{% block content %}
+
+    <section class="feature_add_area">
+
+        <div class="container">
+            <div class="row feature_inner">
+                <hr class="soften">
+                <div>
+                    <h1 style="margin-left: 500px">Hakkımızda</h1>
+                    <br><br>
+                </div>
+                <hr class="soften">
+                <br>
+                <br>
+                <p>
+                    {{ data[0].aboutus|raw }}
+                </p>
+            </div>
+        </div>
+    </section>
+    <br><br><br><br><br><br><br><br><br>
+{% endblock %}

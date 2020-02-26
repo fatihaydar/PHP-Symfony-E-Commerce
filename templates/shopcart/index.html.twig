@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block sidebar %} {{ include('home/userleftsidebar.html.twig') }} {% endblock %}
+
+{% block content %}
+
+<!-- section -->
+    <div style="float:right; margin-right: 300px;  width:55%;">
+    <!-- container -->
+    <div class="container" class="col-md-10"  >
+        {{ include('messages.html.twig') }}
+        <!-- row -->
+        <div class="row">
+<div class="col-md-3"></div>
+            <div class="col-md-12">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ürün Adı</th>
+                <th>Fiyatı</th>
+                <th>Miktar</th>
+                <th>Total Fiyatı</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for shopcart in shopcarts %}
+            <tr>
+                <td>{{ shopcart.id }}</td>
+                <td>{{ shopcart.title }}</td>
+                <td>{{ shopcart.sprice }}</td>
+                <td>{{ shopcart.quantity }}</td>
+                <td>{{ shopcart.quantity * shopcart.sprice }}</td>
+                <td>
+                    {{ include('shopcart/_delete_form.html.twig') }}
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+            </div>
+            <a href="{{ path('orders_new') }}"><button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4" style="width: 150px;;margin-left: 900px">Satın Al</button></a>
+        </div></div></div>
+    </div>
+    <div style="clear:both;"></div>
+{% endblock %}

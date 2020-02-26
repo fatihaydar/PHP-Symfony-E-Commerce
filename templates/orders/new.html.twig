@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Orders{% endblock %}
+{% block leftsidebar %} {{ include('home/userleftsidebar.html.twig') }} {% endblock %}
+
+{% block content %}
+    <h1 style="margin-left: 800px">Fatura Detayları</h1>
+
+
+
+    {{ include('orders/_form.html.twig') }}
+    <br>
+
+        <a href="{{ path('shopcart_index') }}"  class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4" style="width: 250px; margin-left: 870px">Sepete Geri Dön</a>
+
+
+    <br><br><br><br><br><br>
+{% endblock %}

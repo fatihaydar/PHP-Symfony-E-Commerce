@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title %} {{ data[0].title }} {% endblock %}
+{% block keywords %} {{ data[0].keywords }} {% endblock %}
+{% block description %} {{ data[0].description }} {% endblock %}
+{% block content %}
+
+    <section class="feature_add_area">
+
+        <div class="container"  style="width: 1000px">
+            <div class="row feature_inner">
+                <hr class="soften">
+                <div>
+
+                    <h1 style="margin-left: 400px">Referans</h1>
+                    <br>
+                </div>
+                <hr class="soften">
+                <p>
+                    {{ data[0].referances|raw }}
+                </p>
+            </div>
+        </div>
+    </section>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>v
+{% endblock %}

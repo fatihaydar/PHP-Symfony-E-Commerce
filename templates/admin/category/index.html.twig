@@ -1,0 +1,53 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Category index{% endblock %}
+
+{% block content %}
+    <h1>Category index</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Parentid</th>
+            <th>Parent Categori</th>
+            <th>Title</th>
+            <th>Keywords</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for category in category %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.parentid }}</td>
+                {% if category.parentid==0  %}
+                    <td> Ana Kategori</td>
+                {% else %}
+                    {% for cat in categoriess %}
+                        {% if  cat.id ==category.parentid %}
+                            <td>{{ cat .title }}</td>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <td>{{ category.title }}</td>
+                <td>{{ category.keywords }}</td>
+                <td>{{ category.description }}</td>
+                <td>{{ category.status }}</td>
+                <td>
+                    <a href="{{ path('admin_category_show', {'id': category.id}) }}" class="btn btn-primary" ><i class="glyphicon glyphicon-plus"></i> Göster</a>
+                    <a href="{{ path('admin_category_edit',{'id':category.id}) }}" class="btn btn-success" ><i class="glyphicon glyphicon-plus"></i> Düzenle</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_category_new') }}"class="btn btn-info btn-block">Yeni Kategori Ekle</a>
+{% endblock %}

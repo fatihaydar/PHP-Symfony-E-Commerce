@@ -1,0 +1,21 @@
+<!-- Slide1 -->
+
+<section class="slide1" >
+    <div class="wrap-slick1">
+        <div class="slick1">
+            {% for rs in sliders %}
+                <div class="item-slick1 item1-slick1"  >
+                    <a href="{{ path('product_detail' , {'id' : rs.id} ) }}" >
+
+                        <img src="{{ asset('uploads') }}/images/{{ rs.image }}" style="margin-left: 750px" width="500px" height="500px" alt="">
+                    </a>
+
+
+                </div>
+
+
+            {% endfor %}
+        </div>
+    </div>
+
+</section>

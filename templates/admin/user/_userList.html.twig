@@ -1,0 +1,60 @@
+<div id="page-wrapper">
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1 class="page-head-line">Üye Listesi
+
+                </h1>
+                <div class="col-md-12">
+                    <!--    Hover Rows  -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+
+
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Adı-Soyadı</th>
+                                        <th>Durum</th>
+                                        {#<th>Türü</th>#}
+                                        <th>E-mail</th>
+                                        <th>Düzenle</th>
+                                        <th>Sil</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for user in users %}
+                                    <tr>
+                                        <td>{{ user.id }}</td>
+                                        <td>{{ user.name }}</td>
+                                        <td>{{ user.status }}</td>
+                                        <td>{{ user.email }}</td>
+                                        {#<td>#}
+                                            {#{% for item in user.roles %}#}
+                                                {#{{ item }}#}
+                                            {#{% endfor %}#}
+                                        {#</td>#}
+                                        <td><a href="{{ path('admin_user_edit',{'id':user.id}) }}" class="btn btn-primary" ><i class="glyphicon glyphicon-search"></i>  Düzenle</a></td>
+                                        <td><a href="{{ path('admin_user_delete',{'id':user.id}) }}" onclick="return confirm('Kalıcı Olarak Silinecektir..')" class="btn btn-danger" ><i class="glyphicon glyphicon-remove"></i>  Sil</a></td>
+                                    {% endfor %}
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End  Hover Rows  -->
+                </div>
+
+            </div>
+
+            <a href="{{ path('admin_user_new') }}" style="margin-left: 1150px ; width: 400px" class="btn btn-info" ><i class="glyphicon glyphicon-plus"></i> Üye Ekle</a>
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>

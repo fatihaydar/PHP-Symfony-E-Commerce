@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}  {{ data[0].title }} {% endblock %}
+{% block keywords %} {{ data[0].keywords }} {% endblock %}
+{% block description %} {{ data[0].description }} {% endblock %}
+
+
+{% block leftsidebar %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {{ include('home/userleftsidebar.html.twig') }}
+
+    {#{% else %}#}
+        {#<div id="col-md-10">#}
+            {#<!-- container -->#}
+            {#<div class="container">#}
+                {#<div id="responsive-nav">#}
+                    {#<!-- menu nav -->#}
+                    {#<div class="menu-nav">#}
+                        {#<span class="menu-header">Menu <i class="fa fa-bars"></i></span>#}
+                        {#<ul class="menu-list">#}
+                            {#<li><a href="{{ path('products') }}" style="margin-right: 802px">Anasayfa</a></li>#}
+
+
+
+                            {#<li><a href="{{ path('iletisim') }}"> İletişim</a></li>#}
+                            {#<li><a href="{{ path('hakkimizda') }}">Hakkımızda</a></li>#}
+                            {#<li><a href="{{ path('referans') }}"> Referanslar</a></li>#}
+                        {#</ul>#}
+                    {#</div>#}
+                    {#<!-- menu nav -->#}
+                {#</div>#}
+            {#</div>#}
+            {#<!-- /container -->#}
+        {#</div>#}
+    {% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+    <div class="col-md-12" style="width: 750px;margin-left: 900px" >
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-6">
+                <br>
+                <h1>Kullanıcı Girişi</h1>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <br>
+                    <h2>    Kullanıcı Adı{{ app.user.name }} </h2>
+                    <br>
+                    <h2>    E-mail {{ app.user.email }} </h2>
+
+                {% else %}
+                    <form method="post">
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+
+                       <br>
+                        <br>
+                        <br>
+
+
+
+                        <div class="bo4 of-hidden size15 m-b-20">
+                            <input class="sizefull s-text7 p-l-22 p-r-22" type="email" value="{{ last_username }}" name="email" placeholder="E-mail" required autofocus>
+                        </div>
+                        <div class="bo4 of-hidden size15 m-b-20">
+                            <input class="sizefull s-text7 p-l-22 p-r-22" type="password"  name="password" placeholder="Şifre" required autofocus>
+                        </div>
+
+                        <input type="hidden" name="_csrf_token"
+                        value="{{ csrf_token('authenticate') }}"
+                        >
+                        <button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4" type="submit" style="width: 300px;margin-left: 30px">
+                            Giriş Yap
+                        </button>
+                        <br>
+
+                    </form>
+                    <button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4" style="width: 300px;margin-left: 30px"><a href="{{ path('new_user') }}">
+                            Üye Ol</a>
+
+                    </button>
+
+                {% endif %}
+            </div>
+
+        </div>
+
+    </div>
+
+    <br><br><br><br><br><br><br><br><br>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block slider %}  {{ include ("home/_sileder.html.twig") }}   {% endblock %}
+{% block title %} {{ data[0].title }} {% endblock %}
+{% block keywords %} {{ data[0].keywords }} {% endblock %}
+{% block description %} {{ data[0].description }} {% endblock %}
+{% block sidebar %}  {{ include ("home/sidebar.html.twig") }}   {% endblock %}
+{% block content %}
+
+    <div class="col-md-5" style="margin-left: 800px; width: 100%">
+        <!--  -->
+
+        <!-- Product -->
+        <div class="row">
+            {% for rs in products %}
+            <div class="col-md-4" style="width: 900px">
+                <!-- Block2 -->
+                <div class="block2">
+                    <div class="block2-img wrap-pic-w of-hidden pos-relative block2-label new" style="margin-top: 10px">
+                        <img src="{{ asset('uploads') }}/images/{{ rs.image }}" height="150" alt="IMG-PRODUCT">
+
+                        <div class="block2-overlay trans-0-4">
+                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                            </a>
+
+                            <div class="block2-btn-addcart w-size1 trans-0-4">
+                                <!-- Button -->
+                              <a href="{{ path('product_detail',{'id' :rs.id}) }}" ><button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                    Ürünü Gör
+                                  </button></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            {% endfor %}
+        </div>
+
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% endblock %}

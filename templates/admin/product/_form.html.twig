@@ -1,0 +1,110 @@
+<form method="post" style="margin-top: 20px;">
+    <div class="form-group row">
+        <div style="margin-left: 15px;">
+
+
+
+        </div>
+
+        <div class="col-md-6">
+            <label>Kategori</label>
+            <select name="product[category_id]" class="form-control">
+                {#       <option value="{{ product.categoryid }}">{{ catname[0].title }}</option>#}
+
+                {% for cat in catlist %}
+
+                    <option value="{{ cat.id }}">{{ cat.title }}</option>
+                {% endfor %}
+            </select>
+
+
+
+            <form method="post">
+                <div >
+                    <label>Title</label>
+                    <input type="text" class="form-control" name="product[title]"
+                           placeholder="Product(title)">
+                </div>
+                <div >
+                    <label>Description</label>
+                    <input type="text" class="form-control" name="product[description]"
+                           placeholder="description">
+                </div>
+                <div >
+                    <label>Detail</label>
+                    <textarea id="editor" name="product[detail]" rows="10" cols="100"></textarea>
+
+                </div>
+                <div >
+                    <label>Keywords</label>
+                    <input type="text" class="form-control" name="product[keywords]"
+                           placeholder="keywords">
+                </div>
+                <div >
+                    <label>Publisher id</label>
+                    <input  class="form-control" name="product[publisher_id]">
+                </div>
+                <div >
+                    <label>Amount</label>
+                    <input type="text" class="form-control" name="product[amount]"
+                           placeholder="">
+                </div>
+                <div >
+                    <label>sprice</label>
+                    <input type="text" class="form-control" name="product[sprice]"
+                           placeholder="">
+                </div>
+                <div >
+                    <label>pprice</label>
+                    <input type="text" class="form-control" name="product[pprice]"
+                           placeholder="">
+                </div>
+                <div >
+                    <label>Type</label>
+                    <input type="text" class="form-control" name="product[type]"
+                           placeholder="">
+                </div>
+                <div >
+                    <label>user id</label>
+                    <input type="text" class="form-control" name="product[user_id]"
+                           placeholder="">
+                </div>
+
+
+                <div >
+                    <label> Aktif Durum(Status)</label>
+                    <select name="product[status]" class="form-control">
+
+                        <option>True</option>
+                        <option>False</option>
+                    </select>
+                </div>
+
+
+            </form>
+            <!-- //form ekle  -->
+
+
+
+
+
+
+
+
+            <div class="row">
+                <div class="col-md-4">
+                    <label ></label>
+                    <button type="submit" class="btn btn-primary btn-block">Kaydet</button>
+                </div>
+            </div>
+
+
+            <script>
+                ClassicEditor
+                    .create( document.querySelector( '#editor' ) )
+                    .catch( error => {
+                        console.error( error );
+                    } );
+            </script>
+
+</form>

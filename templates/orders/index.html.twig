@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Orders index{% endblock %}
+{% block sidebar %} {{ include('home/userleftsidebar.html.twig') }} {% endblock %}
+
+{% block content %}
+    <ul class="breadcrumb" style="width: 300px;height: 50px;float:right">
+        <li><a href="{{ path('products') }}"> Products</a><span class="divider">/ <a href=" ">Order List</a><span class="divider">/ Preview</span></span> </li>
+
+    </ul>
+
+
+    <h3 xmlns="http://www.w3.org/1999/html" style="margin-left: 700px"><b>Orders index</b></h3>
+
+    <table class="table" style="width: 1200px; margin-left: 400px">
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Userid</th>
+                <th>Amount</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Phone</th>
+                <th>Shipinfo</th>
+                <th>Status</th>
+                <th>Note</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.userid }}</td>
+                <td>{{ order.amount }}</td>
+                <td>{{ order.name }}</td>
+                <td>{{ order.address }}</td>
+                <td>{{ order.city }}</td>
+                <td>{{ order.phone }}</td>
+                <td>{{ order.shipinfo }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.note }}</td>
+                <td>
+                    <a href="{{ path('orders_show', {'id': order.id}) }}"><button class="btn btn-success" >Göster </button></a>
+                    <a href="{{ path('orders_new', {'id': order.id}) }}"><button class="btn btn-primary" >Düzenle</button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('products') }}" style="margin-left: 560px"><button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">Yeni Sipariş</button></a>
+{% endblock %}

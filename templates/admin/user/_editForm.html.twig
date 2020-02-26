@@ -1,0 +1,37 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block content %}
+    <div id="page-wrapper">
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1 class="page-head-line">Üye Düzenle
+
+                </h1>
+                <div class="col-md-12">
+                    <!--    Hover Rows  -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a href="{{ path('admin_user') }}" class="btn btn-primary" ><i class="glyphicon glyphicon-chevron-left"></i> GERİ</a>
+
+                        </div>
+                        <div class="panel-body">
+
+
+                            {{ include('admin/user/_form.html.twig', {'button_label': 'Update'}) }}
+
+                        </div>
+                    </div>
+                    <!-- End  Hover Rows  -->
+                </div>
+
+            </div>
+
+
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+
+
+{% endblock %}

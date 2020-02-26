@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block leftsidebar %} {{ include('home/userleftsidebar.html.twig') }} {% endblock %}
+{% block title %}New Orders{% endblock %}
+
+{% block content %}
+
+<div class="section" style="margin-left: 30%">
+    <!-- container -->
+    <div class="container" >
+        <!-- row -->
+        <div class="row" >
+
+    {{ include('orders/_form.html.twig') }}
+
+
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+{% endblock %}

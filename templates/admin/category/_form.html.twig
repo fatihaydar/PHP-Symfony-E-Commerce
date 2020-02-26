@@ -1,0 +1,60 @@
+<form method="post">
+    <div class="form-group ">
+        <label>Üst Kategori</label>
+        <select name="category[parentid]" class="form-control">
+            {% if activeCat is defined %}
+                <optgroup label="AKTİF KATEGORİ">
+                    <option value="{{ activeCat.id }}">{{ activeCat.title }}</option>
+                </optgroup>
+            {% endif %}
+            <optgroup label="SEÇİLEBİLECEK KATEGORİLER">
+                <option value="0">Ana Kategori</option>
+                {% for x in catlist %}
+                    <option value="{{ x.id }}">{{ x.title }}</option>
+                {% endfor %}
+            </optgroup>
+        </select>
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <label for="exampleInputPassword1">Başlık</label>
+            <input type="text" class="form-control" name="category[title]" value="{{ category.title }}" placeholder="Başlık">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <label for="exampleInputPassword1">Anahtar Kelimeler</label>
+            <input type="text" class="form-control" name="category[keywords]" value="{{ category.keywords }}" placeholder="Anahtar Kelimeler">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <label for="exampleInputPassword1">Kategori Açıklaması</label>
+            <input type="text" class="form-control" name="category[description]" value="{{ category.description }}" placeholder="Kategori Açıklama">
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <label for="exampleInputPassword1">Durum</label>
+            <select name="category[status]" class="form-control">
+                <option>{{ category.status }}</option>
+                <option>True</option>
+                <option>False</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <label ></label>
+            <button type="submit" class="btn btn-primary btn-block">Kaydet</button>
+        </div>
+    </div>
+
+</form>

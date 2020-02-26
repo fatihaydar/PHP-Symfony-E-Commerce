@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block leftsidebar %} {{ include('home/userleftsidebar.html.twig') }} {% endblock %}
+{% block title %}Edit{% endblock %}
+
+{% block content %}
+<div class="section" style="margin-left: 8%;">
+    <!-- container -->
+    <div class="container" style=" height: 600px;  width:40%" >
+        <!-- row -->
+        <div class="row" >
+
+
+    {{ include('userpanel/_form.html.twig', {'button_label': 'Update'}) }}
+        </div></div></div>
+    {% endblock %}

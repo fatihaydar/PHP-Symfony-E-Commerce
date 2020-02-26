@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block leftsidebar %} {{ include('home/userleftsidebar.html.twig') }} {% endblock %}
+
+{% block content %}
+
+<!-- section -->
+<div class="section" style="height: 600px">
+    <!-- container -->
+    <div class="container" class="col-md-12">
+        <!-- row -->
+        <div class="row">
+<div class="col-md-3"></div>
+            <div class="col-md-7">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Password</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>{{ shopcart.id }}</td>
+                <td>{{ shopcart.title }}</td>
+                <td>{{ shopcart.sprice }}</td>
+                <td>{{ shopcart.quantity }}</td>
+                <td>{{ shopcart.quantity * shopcart.sprice }}</td>
+
+            </tr>
+
+
+
+        </tbody>
+    </table>
+    <a href="{{ path('orders_new') }}" class="primary-btn add-to-cart btn btn-block"><span class="glyphicon-shopping-cart"></span> Satın Al</a>
+
+
+            </div>
+        </div></div></div>
+{% endblock %}

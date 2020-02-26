@@ -1,0 +1,134 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block content %}
+
+    <div id="page-wrapper">
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <h1 class="page-head-line"> </h1>
+
+                    <div class="col-md-12">
+                        <!--    Hover Rows  -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                {#<a href="{{ path('admin_product_new') }}" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> ÜRÜN Ekle</a>#}
+
+                            </div>
+                            <div class="panel-body">
+
+
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <th>Id</th>
+                                        <td>{{ order.id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Kullanıcı ID</th>
+                                        <td>{{ order.userid }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Miktar</th>
+                                        <td>{{ order.amount }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Adı / Soyadı</th>
+                                        <td>{{ order.name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Adresi</th>
+                                        <td>{{ order.address }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Şehir</th>
+                                        <td>{{ order.city }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Telefon</th>
+                                        <td>{{ order.phone }}</td>
+                                    </tr>
+                                    <form action="{{ path('admin_orders_update',{'id':order.id}) }}" method="post">
+                                        <tr>
+                                            <th>Alışveriş Detay</th>
+                                            <td>
+                                                <textarea name="shipinfo" cols="100" rows="3">
+                                                    {{ order.shipinfo }}
+                                                </textarea>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>Admin Notu</th>
+                                            <td>
+                                                <textarea name="note" cols="100" rows="3">
+                                                   {{ order.note }}
+                                                </textarea>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>Sipariş Durumu</th>
+                                            <td>
+                                                <select name="status">
+                                                    <option> {{ order.status }} </option>
+                                                    <option> Hazırlanıyor </option>
+                                                    <option> Kargoda </option>
+                                                    <option> İptal </option>
+                                                    <option> TeslimEdildi </option>
+                                                </select>
+                                                <br>
+                                                <input type="submit" class="btn btn-danger" value="Guncelle" style="margin-top: 1%">
+
+                                            </td>
+                                        </tr>
+
+                                    </form>
+                                    </tbody>
+                                </table>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Ürün Adı</th>
+                                            <th>Satış Fiyatı</th>
+                                            <th>Adet</th>
+                                            <th>Toplam</th>
+                                            <th>Sipariş Durumu</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    {% for rs in orderdetail %}
+                                        <tr>
+                                            <td>{{ rs.id }}</td>
+                                            <td>{{ rs.name }}</td>
+                                            <td>{{ rs.price }}</td>
+                                            <td>{{ rs.quantity }}</td>
+                                            <td>{{ rs.amount }}</td>
+                                            <td>{{ rs.status }}</td>
+                                        </tr>
+
+                                    {% endfor %}
+                                    <tr>
+                                        <td colspan="5"> <b>Toplam Alışveriş Tutarı: {{ order.amount }}</b></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End  Hover Rows  -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
